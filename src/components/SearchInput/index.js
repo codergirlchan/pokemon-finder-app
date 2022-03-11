@@ -13,13 +13,26 @@ const getPokemonData = async(setPokemonData, pokemon) => {
     }
 }
 
+const handleKeypress = (e) => {
+    if(e.key === 'Enter'){
+        console.log('enter press here! ')
+    }
+}
+
 export default function SearchInput(props) {
     const { setPokemonData } = props;
     const [ currentPokemon, setCurrentPokemon ] = useState('');
 
     return (
         <div>
-            <input type="text" onChange={(e) => setCurrentPokemon(e.target.value)} />
+            <input type="text" 
+                onKeyPress={async(e) => {
+                    if(e.key === 'Enter'){
+                        await getPokemonData(setPokemonData, currentPokemon)
+                    }
+                }} 
+                onChange={(e) => setCurrentPokemon(e.target.value)} 
+            />
             <button onClick={async() => await getPokemonData(setPokemonData, currentPokemon)}> 
                 Hello 
             </button>

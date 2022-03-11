@@ -1,3 +1,7 @@
+const convertWeight = (weight) => {
+    return (weight/10).toFixed(1)
+}
+
 export default function PokemonDetails(props) {
     const { data } = props
     return (
@@ -8,7 +12,7 @@ export default function PokemonDetails(props) {
                 <img alt="it is a pokemon" src={data.sprites.other['official-artwork'].front_default} />
             }
             <p>Pokedex ID: {data.id}</p>
-            <p>Weight: {data.weight}</p>
+            <p>Weight: {data.weight && `${convertWeight(data.weight)} kg`}</p>
         </div>
     )
 }
