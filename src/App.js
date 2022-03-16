@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import SearchWrapper from './components/SearchWrapper';
 
 function App() {
